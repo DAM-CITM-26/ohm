@@ -1,5 +1,14 @@
+import Inicio from './pages/inicio.jsx'
+
 export default function App() {
   return (
-    <h1>OHM</h1>
+    <>
+      <header className="cabecera">
+        <h1>Ohm</h1>
+      </header>
+      <main>
+        <Inicio />
+      </main>
+    </>
   )
 }
