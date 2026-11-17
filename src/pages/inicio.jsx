@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Buscador } from '../components/moleculas/Buscador.jsx'
 import { Chips } from '../components/moleculas/Chips.jsx'
 import { ListaRestaurantes } from '../components/organismos/ListaRestaurantes.jsx'
-import { RESTAURANTES, SIGUIENDO_INICIAL } from '../data/restaurantes.js'
+import { RESTAURANTES, SIGUIENDO } from '../data/restaurantes.js'
 import { cocinasDe, filtrarRestaurantes } from '../utils/restaurantes.js'
 
 export default function Inicio() {
@@ -15,7 +15,7 @@ export default function Inicio() {
   const restaurantes = filtrarRestaurantes(
     RESTAURANTES,
     { texto, cocina, vista },
-    SIGUIENDO_INICIAL
+    SIGUIENDO
   )
 
   return (
@@ -28,7 +28,7 @@ export default function Inicio() {
       </p>
       <ListaRestaurantes
         restaurantes={restaurantes}
-        siguiendo={SIGUIENDO_INICIAL}
+        siguiendo={SIGUIENDO}
         textoVacio="No hay restaurantes con estos filtros."
       />
     </section>
