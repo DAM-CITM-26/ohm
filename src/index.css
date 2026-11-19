@@ -1,13 +1,14 @@
 /* 1. TOKENS: los valores del Style Guide, como variables */
 :root {
-  --color-primario: #193819;
-  --color-acento: #FC8A2D;
-  --color-fondo: #F8F8F8;
-  --color-superficie: #FFFFFF;
-  --color-sobre-primario: #FFFFFF;
-  --color-texto: #1C1C1C;
-  --color-texto-suave: #5E5F60;
-  --color-borde: #E4E4E2;
+  --color-primario: #FC8A2D;
+  --color-secundario: #2A3C22;
+  --color-fondo: #FFFFFF;
+  --color-superficie: #F8F8F8;
+  --color-sobre-primario: #000000;
+  --color-sobre-secundario: #FFFFFF;
+  --color-texto: #000000;
+  --color-texto-suave: var(--color-secundario);
+  --color-borde: var(--color-superficie);
 
   --fuente: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --radio: 12px;
@@ -112,7 +113,7 @@ main {
   align-items: center;
   justify-content: center;
   font-size: 2.2rem;
-  background: var(--color-primario);
+  background: var(--color-secundario);
 }
 
 /* Etiqueta */
@@ -122,12 +123,12 @@ main {
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 600;
-  background: #FBEBCF;
-  color: #7A4E0C;
+  background: var(--color-secundario);
+  color: var(--color-sobre-secundario);
 }
 
 /* Nota con estrella */
-.estrellas { color: var(--color-acento); letter-spacing: 2px; }
+.estrellas { color: var(--color-primario); letter-spacing: 2px; }
 
 /* Estado vacío */
 .vacio { text-align: center; color: var(--color-texto-suave); padding: var(--espacio-5) var(--espacio-4); }
