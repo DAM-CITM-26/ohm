@@ -1,17 +1,45 @@
-# React + Vite
-# <OHM> · versión 1
-Team Members: Lucia Sangüesa, Ainhoa Carayol, Arnau Valls 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# OhM
 
-Currently, two official plugins are available:
+OhM es una aplicación gastronómica para descubrir restaurantes, consultar las opiniones de Foodies verificados, guardar establecimientos y seguir a usuarios con gustos similares.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Equipo
+| Ainhoa Carayol | [@ainhoacf] |
+| Lucia Sangüesa | [@luciasamo] |
+| Arnau Valls | [@arnauvg] |
 
-## React Compiler
+## Cómo arrancar la app
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Necesitas tener [Node.js](https://nodejs.org) instalado.
 
-## Expanding the Oxlint configuration
+```bash
+git clone <url-del-repositorio>
+cd ohm
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Vite te mostrará en la terminal la dirección local (normalmente http://localhost:5173).
+
+Otros comandos:
+
+- `npm run build`: genera la versión de producción.
+- `npm run preview`: sirve esa versión en local.
+- `npm run lint`: revisa el código con Oxlint.
+
+## Enlaces
+
+- **Trello:** <enlace [al tablero](https://trello.com/invite/b/6ab6940f3c3229641dc1d950/ATTI456cb14389276facc5071dc2ae0b9c517896BF7D/ohm) >
+- **Referencia:** https://dam-citm-26.github.io/referencias/ohm/ (código en [github.com/DAM-CITM-26/referencias](https://github.com/DAM-CITM-26/referencias))
+
+## Estructura del proyecto
+
+| Carpeta | Para qué sirve |
+|---|---|
+| `src/components/` | Componentes reutilizables, organizados por nivel: `atomos/` (Chip, Nota, Portada), `moleculas/` (Buscador, Chips, TarjetaRestaurante, Vacio) y `organismos/` (Cabecera, ListaRestaurantes). |
+| `src/pages/` | Pantallas principales de la aplicación (por ahora, Inicio). |
+| `src/data/` | Datos de la app: restaurantes, Foodies que seguimos y emojis de cada cocina. |
+| `src/utils/` | Funciones auxiliares, como calcular la nota media o filtrar restaurantes. |
+| `docs/` | Documentación: modelo de datos (`datos.md`) y mapa de componentes (`componentes.md`). |
+| `public/` | Archivos estáticos (favicon e iconos). |
+
+Además, `src/index.css` contiene los estilos, tomados de la referencia.
