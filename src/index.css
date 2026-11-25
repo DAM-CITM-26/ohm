@@ -17,6 +17,7 @@
   --espacio-3: 12px;
   --espacio-4: 16px;
   --espacio-5: 24px;
+  --alto-pestanas: 64px;
 }
 
 * { box-sizing: border-box; }
@@ -50,6 +51,7 @@ p { margin: 0; }
 
 main {
   padding: var(--espacio-4) var(--espacio-4) var(--espacio-5);
+  padding-bottom: calc(var(--alto-pestanas) + var(--espacio-5));
   max-width: 720px;
   margin: 0 auto;
 }
@@ -136,3 +138,69 @@ main {
 
 /* Para lectores de pantalla: oculto a la vista */
 .oculto { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* Barra de pestañas: siempre abajo (fixed) */
+.pestanas {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  height: var(--alto-pestanas);
+  display: flex;
+  background: var(--color-superficie);
+  border-top: 1px solid var(--color-borde);
+}
+.pestanas a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: var(--color-texto-suave);
+  text-decoration: none;
+}
+.pestanas a span { font-size: 1.3rem; }
+.pestanas a.activa { color: var(--color-primario); font-weight: 600; }
+
+/* Lista */
+.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--espacio-2); }
+.list li {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  padding: var(--espacio-3);
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+}
+.list li .crece { flex: 1; min-width: 0; }
+.enlace-fila { color: inherit; text-decoration: none; }
+
+/* Avatar: un círculo con una letra */
+.avatar {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primario);
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+/* Botones */
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--color-primario);
+  color: var(--color-sobre-primario);
+}
+.btn-secundario { background: transparent; color: var(--color-primario); border: 1px solid var(--color-primario); }
