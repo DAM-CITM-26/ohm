@@ -32,3 +32,10 @@ export function cocinasDe(restaurantes) {
   }
   return cocinas
 }
+
+// Los restaurantes que ha reseñado un Foodie
+export function restaurantesDeFoodie(restaurantes, foodieId) {
+  return restaurantes.filter((restaurante) =>
+    restaurante.resenas.some((resena) => resena.foodieId === foodieId),
+  )
+}
