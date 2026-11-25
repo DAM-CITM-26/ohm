@@ -3,18 +3,15 @@ import { Routes, Route } from 'react-router-dom'
 import Layout from './Layout.jsx'
 import Inicio from './pages/Inicio.jsx'
 import Restaurante from './pages/Restaurante.jsx'
+import Foodies from './pages/Foodies.jsx'
+import Foodie from './pages/Foodie.jsx'
 
-function Foodies() {
-  return <h2>Foodies</h2>
-}
 
 function Guardados() {
   return <h2>Guardados</h2>
 }
 
-function Foodie() {
-  return <h2>Detalle del foodie</h2>
-}
+
 
 function NoEncontrado() {
   return <h2>Página no encontrada</h2>
