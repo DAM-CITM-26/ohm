@@ -2,6 +2,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from './Layout.jsx'
 import Inicio from './pages/Inicio.jsx'
+import Restaurante from './pages/Restaurante.jsx'
 
 function Foodies() {
   return <h2>Foodies</h2>
@@ -9,10 +10,6 @@ function Foodies() {
 
 function Guardados() {
   return <h2>Guardados</h2>
-}
-
-function Restaurante() {
-  return <h2>Detalle del restaurante</h2>
 }
 
 function Foodie() {
