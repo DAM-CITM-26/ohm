@@ -1,86 +1,69 @@
-# AGENTS.md · [Nombre de la app] · DAM 2026-27
-
-> **Esqueleto. Solo si vuestro equipo usa IA** (no es obligatoria). Estos son los apartados que tiene que tener vuestro `AGENTS.md`. Lo escribís vosotros, en la raíz del repositorio, con vuestras palabras; borrad estas notas en gris (las líneas que empiezan por `>`) cuando lo tengáis.
->
-> - **Para quién es:** para la IA, no para las personas. OpenCode lo lee solo si lo abrís en la carpeta del repositorio (no uséis `/init`: lo reescribe). En un chat (ChatGPT u otro), pegadlo al empezar cada conversación.
-> - **Para qué:** que la IA solo use lo que se ha visto en clase y que trabaje como copiloto.
-> - **Es un documento vivo:** al empezar cada sprint, añadid lo nuevo de la tabla «Qué tenéis que usar en cada sprint» de la guía del proyecto. Cada vez que la IA se equivoque, añadid una regla en «Lo que hemos aprendido». Cada cambio, en un commit `docs(agents): …`.
-> - **Cómo comprobar que funciona:** preguntadle a la IA «¿qué no puedes usar en este proyecto?». Tiene que responder con vuestra lista.
+# AGENTS.md · OhM · DAM 2026-27
 
 ## Quiénes somos
 
-> Somos OhM (Ainhoa Carayol, Lucia Sangüesa y Arnau Valls). Nuestro proyecto consiste en desarrollar una aplicación llamada OhM, tomando como referencia una aplicación diseñada previamente en HTML, CSS y JavaScript.
+Somos el equipo OhM: Ainhoa Carayol, Lucía Sangüesa y Arnau Valls. Desarrollamos OhM, una app de restaurantes y Foodies, en React, a partir de la referencia de clase hecha en HTML, CSS y JavaScript.
 
-Para desarrollarla, solo podemos utilizar los conceptos y las herramientas que hemos aprendido en clase. Si alguna funcionalidad requiere una técnica que todavía no hemos visto, la IA debe indicárnoslo y proponernos una alternativa para conseguir un resultado similar utilizando únicamente los conocimientos permitidos.
+Solo podemos usar lo que hemos visto en clase. Si algo necesita una técnica que todavía no hemos visto, avísanos y propón una alternativa con lo que sí está permitido.
 
 ## Stack
 
-> Con qué se hace el proyecto: React con Vite, en JavaScript (`.jsx`), sin TypeScript; el CSS de la referencia en `src/index.css`; vuestras carpetas (`src/components`, `src/pages`, `src/data`, `src/utils`, `docs`) y qué va en cada una; que no se instala ninguna dependencia sin preguntar.
--React con Vite.
-> JavaScript (.jsx), sin TypeScript.
-> CSS a partir de la referencia proporcionada en src/index.css.
-> src/components: componentes reutilizables de la aplicación.
-> src/pages: pantallas principales de la aplicación.
-> src/data: datos utilizados por la aplicación.
-> src/utils: funciones auxiliares.
-> docs: documentación del proyecto.
-> No instalar nuevas dependencias sin preguntarnos antes.
+- React con Vite, en JavaScript (`.jsx`), sin TypeScript.
+- El CSS de la referencia, en `src/index.css`.
+- `src/components/`: componentes reutilizables, en `atomos/`, `moleculas/` y `organismos/`.
+- `src/pages/`: una pantalla por dirección.
+- `src/hooks/`: custom hooks con el estado, su lógica y los efectos (ficheros `.js`).
+- `src/data/api.js`: el único fichero que pide datos a la API (DummyJSON).
+- `src/utils/`: funciones puras de cálculo.
+- `docs/`: documentación (`datos.md`, `componentes.md`, `rutas.md`).
+- No se instala ninguna dependencia sin preguntarnos antes.
 
-## Permitido (hasta el Sprint [N])
+## Permitido (hasta el Sprint 2)
 
-> Lo de la tabla «Qué tenéis que usar en cada sprint» de la guía del proyecto, hasta el sprint en curso. Una línea por cosa.
-
-React y JSX.
-JavaScript.
-CSS.
-HTML.
-Componentes y props.
+- React, JSX, componentes y props.
+- `useState` y el estado en el padre común; eventos con `onClick` y `onChange`.
+- Listas con `.map()` y `key`; renderizado condicional.
+- Funciones puras en `src/utils/`.
+- Sprint 2: `useEffect` con sus dependencias y su limpieza, y la función async dentro del efecto.
+- Sprint 2: `fetch` con async/await, solo en `src/data/api.js`, comprobando `respuesta.ok`.
+- Sprint 2: los tres estados: «cargando», error con «Reintentar» y «sin resultados».
+- Sprint 2: custom hooks en `src/hooks/` (`useRestaurantes`, `useRestaurante(id)`, `useFoodies`, `useFoodie(id)`).
+- Sprint 2: debounce con `setTimeout` y la limpieza del efecto, si el buscador pregunta a la API.
+- Sprint 2: React Router: `BrowserRouter`, `Routes`, `Route`, `Link`, `NavLink`.
+- Sprint 2: `useParams` y la ruta del detalle (`/restaurante/:id`, `/foodie/:id`).
+- Sprint 2: la ruta de «no encontrado» (`path="*"`).
+- Sprint 2: rutas anidadas con `Outlet` para el layout con la barra de pestañas.
+- Sprint 2: `useNavigate` y `useRef` (por ejemplo, para dar el foco a un elemento).
 
 ## Prohibido
 
-> Lo que todavía no se ha visto en clase (con el sprint en que llega). Incluid siempre `document.querySelector`, `innerHTML` y `addEventListener`.
-
-Utilizar TypeScript.
-Utilizar técnicas o herramientas que todavía no se hayan explicado en clase.
-Utilizar document.querySelector.
-Utilizar innerHTML.
-Utilizar addEventListener.
-Manipular el DOM directamente.
-Instalar dependencias sin consultarnos previamente.
-Introducir librerías externas o soluciones avanzadas que no hayamos trabajado en clase.
-Si una funcionalidad necesita alguna de estas técnicas, hay que explicárnoslo y proponer una alternativa utilizando los conocimientos permitidos.
+- TypeScript.
+- `document.querySelector`, `innerHTML`, `addEventListener` y cualquier forma de tocar el DOM a mano.
+- Context, localStorage y publicar en GitHub Pages: llegan en el Sprint 3.
+- Pruebas con Vitest: Sprint 3.
+- Instalar dependencias o librerías que no hayamos visto en clase sin preguntarnos.
+- Llamar a `fetch` fuera de `src/data/api.js`, o meter cálculos, efectos o llamadas dentro de los componentes.
 
 ## Cómo tiene que responder
 
-> Cómo queréis que os ayude. Por ejemplo: el plan en 3-5 líneas antes del código y con qué concepto de clase; una pieza cada vez, nunca la pantalla entera; revisar vuestro código sin reescribirlo; proponer el mensaje de commit con su formato (`Qué`, `Por qué`, `Cómo`, `Referencia:`, `Concepto:`, `IA:`); los nombres de las props propias, distintos de los nativos (`onCambio`, no `onChange`).
-
-Antes de escribir código, explicar brevemente el plan de lo que se va a hacer (3-5 líneas).
-Indicar qué concepto de clase se está utilizando.
-Trabajar una pieza cada vez, sin desarrollar una pantalla entera de golpe.
-No reescribir nuestro código completo si solo pedimos corregir una parte.
-Explicar los cambios para que podamos entenderlos y aprender.
-No utilizar soluciones más avanzadas de las que hemos visto en clase.
-Si hay varias formas de resolver algo, elegir la más sencilla dentro de los conocimientos permitidos.
-Si una funcionalidad no se puede realizar con lo aprendido, avisarnos y proponer una alternativa.
-Utilizar nombres de props propios en castellano, por ejemplo onCambio en lugar de onChange, cuando sean props creadas por nosotros.
-Al proponer un commit, utilizar este formato:
-- Qué:
-- Por qué:
-- Cómo:
-- Referencia:
-- Concepto:
-- IA:
+- Antes del código, el plan en 3-5 líneas y qué concepto de clase usa.
+- Una pieza cada vez, nunca una pantalla entera de golpe.
+- Si pedimos revisar o corregir una parte, no reescribas todo el fichero.
+- Explica los cambios para que los entendamos y sepamos explicarlos en la demo.
+- Si hay varias formas, la más sencilla de las vistas en clase.
+- Props propias en castellano y distintas de las nativas (`onCambio`, no `onChange`).
+- Al proponer un commit, usa este formato: título corto `tipo(ámbito): qué`, y en la descripción `Qué:`, `Por qué:`, `Cómo:`, `Referencia:`, `Concepto:`, `IA:`.
 
 ## Nuestro proyecto
 
-- **App:** OhM — Aplicación gastronómica que permite descubrir restaurantes, consultar opiniones de Foodies verificados, guardar establecimientos y seguir a usuarios con gustos similares.
+- **App:** OhM. Descubrir restaurantes, leer las reseñas de los Foodies y ver cuáles recomiendan los Foodies que sigues.
 - **Referencia:** https://dam-citm-26.github.io/referencias/ohm/ (su código, en github.com/DAM-CITM-26/referencias)
-- **Pantallas del sprint en curso:**
+- **Pantallas del sprint en curso (Sprint 2):** la barra de pestañas, la ficha del restaurante (`/restaurante/:id`), la lista de Foodies (`/foodies`), el perfil de un Foodie (`/foodie/:id`) y la página de «no encontrado».
 - **Modelo de datos:** `docs/datos.md`
 - **Componentes de cada pantalla:** `docs/componentes.md`
+- **Rutas:** `docs/rutas.md`
 
 ## Lo que hemos aprendido
 
-> Las reglas que añadís cuando la IA se equivoca, con la fecha. Por ejemplo: «10/11 · El estado de un filtro vive en la pantalla, no en los chips».
-
-- 17/11 · La IA debe utilizar únicamente los conceptos trabajados en clase y avisar antes de proponer técnicas que todavía no hemos aprendido.
+- 17/11 · La IA tiene que usar solo lo visto en clase y avisar antes de proponer algo que todavía no hemos aprendido.
+- 25/11 · La IA hizo de golpe todas las tareas del Sprint 2, también las de Lucía y Ainhoa, en ramas que no eran nuestras. Regla: trabaja solo en la tarea de quien te lo pide, en su rama, y nunca en la de otra persona.
