@@ -1,8 +1,9 @@
+
 # OhM
 
 OhM es una aplicación gastronómica para descubrir restaurantes, consultar las opiniones de Foodies verificados, guardar establecimientos y seguir a usuarios con gustos similares.
 
-Proyecto de Desarrollo de Aplicaciones Móviles (DAM 2026-27, CITM). Hecha en React con Vite a partir de la referencia de clase.
+Proyecto de Desarrollo de Aplicaciones Móviles (DAM 2026-27, CITM). Desarrollado con React y Vite a partir de la referencia de clase.
 
 ## Equipo
 
@@ -25,30 +26,55 @@ npm run dev
 
 Vite te mostrará en la terminal la dirección local (normalmente http://localhost:5173).
 
-Otros comandos:
+### Otros comandos
 
+- `npm run dev`: inicia el servidor de desarrollo.
 - `npm run build`: genera la versión de producción.
 - `npm run preview`: sirve esa versión en local.
 - `npm run lint`: revisa el código con Oxlint.
 
+## Tecnologías
+
+- React 19.
+- Vite 8.
+- React Router.
+- JavaScript.
+- DummyJSON como API pública de datos.
+- Oxlint para analizar el código.
+
 ## Enlaces
 
 - **Trello:** https://trello.com/b/2AWGRpmC/ohm
-- **Referencia:** https://dam-citm-26.github.io/referencias/ohm/ (código en [github.com/DAM-CITM-26/referencias](https://github.com/DAM-CITM-26/referencias))
-- **API de datos:** [DummyJSON](https://dummyjson.com) (pública, sin clave)
+- **Referencia:** https://dam-citm-26.github.io/referencias/ohm/ (código en [github.com/DAM-CITM-26/referencias](https://github.com/DAM-CITM-26/referencias)).
+- **API de datos:** [DummyJSON](https://dummyjson.com) (pública, sin clave).
 
 ## Estructura del proyecto
 
 | Carpeta | Para qué sirve |
 |---|---|
-| `src/components/atomos/` | Las piezas más pequeñas: Chip, Nota, Portada, Avatar, Cargando… |
-| `src/components/moleculas/` | Piezas hechas con átomos: Buscador, Chips, TarjetaRestaurante, Vacio, ErrorCarga… |
-| `src/components/organismos/` | Partes grandes de la pantalla: Cabecera, ListaRestaurantes, BarraPestanas. |
-| `src/pages/` | Una pantalla por dirección: Inicio, ficha del restaurante, Foodies, perfil del Foodie y «no encontrado». |
-| `src/hooks/` | Custom hooks que cargan los datos y devuelven `cargando`, `error` y `reintentar`. |
-| `src/data/api.js` | El único fichero que pide datos a la API y los adapta a nuestro modelo. |
-| `src/utils/` | Funciones puras: nota media, filtros, buscar por id… |
-| `docs/` | Documentación: modelo de datos (`datos.md`), mapa de componentes (`componentes.md`) y árbol de rutas (`rutas.md`). |
-| `public/` | Archivos estáticos (favicon e iconos). |
+| `src/components/atomos/` | Componentes básicos y reutilizables, como Chip, Nota y Portada. |
+| `src/components/moleculas/` | Componentes formados por elementos más pequeños, como Buscador, Chips y TarjetaRestaurante. |
+| `src/components/organismos/` | Componentes que agrupan varias piezas de interfaz, como Cabecera y ListaRestaurantes. |
+| `src/pages/` | Pantallas de la aplicación, como Inicio y Restaurante. |
+| `src/hooks/` | Hooks reutilizables para cargar datos y gestionar estados de carga, error y reintento. |
+| `src/data/api.js` | Comunicación con DummyJSON y adaptación de sus respuestas al modelo de OhM. |
+| `src/data/restaurantes.js` | Datos locales de restaurantes, usuarios seguidos y emojis de cocina. |
+| `src/utils/` | Funciones auxiliares para calcular notas, filtrar restaurantes y obtener cocinas. |
+| `docs/` | Documentación técnica: modelo de datos (`datos.md`), mapa de componentes (`componentes.md`) y rutas (`rutas.md`). |
+| `public/` | Archivos estáticos de la aplicación. |
 
-Además, `src/index.css` contiene los estilos, tomados de la referencia.
+Además, `src/index.css` contiene los estilos de la aplicación, adaptados de la referencia de clase.
+
+## Datos y API
+
+La aplicación utiliza DummyJSON para obtener información de restaurantes y usuarios. Los datos recibidos se adaptan al modelo propio de OhM mediante `src/data/api.js`.
+
+La pantalla de inicio utiliza datos obtenidos mediante hooks. Algunas funcionalidades todavía utilizan datos locales.
+
+Para más información, consulta [docs/datos.md](docs/datos.md).
+
+## Documentación
+
+- [Modelo de datos](docs/datos.md).
+- [Mapa de componentes](docs/componentes.md).
+- [Árbol de rutas](docs/rutas.md).

@@ -1,14 +1,14 @@
 const BASE = 'https://dummyjson.com'
 
-// DummyJSON no tiene barrio, precio ni dirección: se rellenan con valores fijos
-const BARRIOS = ['Gràcia', 'Eixample', 'Sant Antoni', 'Barceloneta', 'Poblenou', 'El Raval']
-const PRECIOS = { Easy: '€', Medium: '€€', Hard: '€€€' }
+// DummyJSON no tiene barrio, precio ni direcciÃ³n: se rellenan con valores fijos
+const BARRIOS = ['GrÃ cia', 'Eixample', 'Sant Antoni', 'Barceloneta', 'Poblenou', 'El Raval']
+const PRECIOS = { Easy: 'â‚¬', Medium: 'â‚¬â‚¬', Hard: 'â‚¬â‚¬â‚¬' }
 const COCINAS = {
-    Italian: 'Italiana', Japanese: 'Japonesa', Mediterranean: 'Mediterránea',
-    Mexican: 'Mexicana', Asian: 'Asiática', Indian: 'India', Greek: 'Griega',
-    Thai: 'Tailandesa', Korean: 'Coreana', Turkish: 'Turca', Moroccan: 'Marroquí',
-    Lebanese: 'Libanesa', Brazilian: 'Brasileña', Russian: 'Rusa',
-    American: 'Americana', Pakistani: 'Pakistaní',
+    Italian: 'Italiana', Japanese: 'Japonesa', Mediterranean: 'MediterrÃ¡nea',
+    Mexican: 'Mexicana', Asian: 'AsiÃ¡tica', Indian: 'India', Greek: 'Griega',
+    Thai: 'Tailandesa', Korean: 'Coreana', Turkish: 'Turca', Moroccan: 'MarroquÃ­',
+    Lebanese: 'Libanesa', Brazilian: 'BrasileÃ±a', Russian: 'Rusa',
+    American: 'Americana', Pakistani: 'PakistanÃ­',
 }
 
 async function pedir(ruta, mensaje404 = 'No se ha encontrado') {
@@ -24,7 +24,7 @@ function adaptarRestaurante(receta, resenas = []) {
         nombre: receta.name,
         cocina: COCINAS[receta.cuisine] ?? receta.cuisine,
         barrio: BARRIOS[receta.id % BARRIOS.length],
-        precio: PRECIOS[receta.difficulty] ?? '€€',
+        precio: PRECIOS[receta.difficulty] ?? 'â‚¬â‚¬',
         direccion: `Carrer de Prova, ${receta.id}`,
         autorId: receta.userId,
         resenas,
